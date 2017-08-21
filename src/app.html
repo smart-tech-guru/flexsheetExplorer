@@ -1,0 +1,39 @@
+﻿<!-- page header -->
+<div class="header">
+    <div class="container">
+        <h1>
+            <img src="resources/wijmo5.png" alt="Wijmo 5" />
+            FlexSheet Explorer
+        </h1>
+        <p>
+            A showcase for the new Wijmo 5 FlexSheet.
+        </p>
+    </div>
+</div>
+<!-- page body -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div id="FlexSheet">
+                        <div class="panel-body">
+                            <ul class="flat-list">
+                                <ng-template ngFor let-route [ngForOf]="routes">
+                                    <li *ngIf="route.data?.caption">
+                                        <a [routerLink]="route.path" routerLinkActive="active">
+                                            {{route.data.caption}}
+                                        </a>
+                                    </li>
+                                </ng-template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
