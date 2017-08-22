@@ -22,6 +22,9 @@ var IntroCmp = (function () {
         if (flexSheet) {
             flexSheet.selectedSheetIndex = 0;
         }
+        flexSheet.prepareCellForEdit.addHandler(function () {
+            console.log(flexSheet.selectedSheet);
+        });
     };
     return IntroCmp;
 }());

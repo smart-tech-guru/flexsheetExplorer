@@ -24,8 +24,12 @@ export class IntroCmp {
         if (flexSheet) {
             flexSheet.selectedSheetIndex = 0;
         }
+        flexSheet.prepareCellForEdit.addHandler(() => {
+           console.log(flexSheet.selectedSheet);
+        });
     }
 }
+
 
 
 const routing: ModuleWithProviders = RouterModule.forChild([
