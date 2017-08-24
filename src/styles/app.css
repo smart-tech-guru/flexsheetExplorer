@@ -74,6 +74,8 @@ ul.flat-list {
     top: 0;
     left: 0;
 }
+
+
 /* responsive layout */
 @media(min-width: 992px) {
     .collapse.app-lg-visible {

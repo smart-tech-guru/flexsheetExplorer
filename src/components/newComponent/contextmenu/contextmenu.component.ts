@@ -24,6 +24,7 @@ export class ContextMenuComponent implements OnInit {
   
   @Input() top: number;
   @Input() left: number;
+  @Input() width: number;
   @Output('destroyCheck') result: EventEmitter<any> = new EventEmitter(); 
   
   ngOnInit() {

@@ -43,6 +43,10 @@ __decorate([
     __metadata("design:type", Number)
 ], ContextMenuComponent.prototype, "left", void 0);
 __decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], ContextMenuComponent.prototype, "width", void 0);
+__decorate([
     core_1.Output('destroyCheck'),
     __metadata("design:type", core_1.EventEmitter)
 ], ContextMenuComponent.prototype, "result", void 0);
