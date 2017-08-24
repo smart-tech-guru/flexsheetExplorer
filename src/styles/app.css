@@ -67,11 +67,13 @@ ul.flat-list {
 }
 
 .flexSheet {
-	height: 600px;
-	border: 2px solid #e0e0e0;
-	margin: 6px;
+    height: 600px;
+    border: 2px solid #e0e0e0;
+    margin: 6px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
-
 /* responsive layout */
 @media(min-width: 992px) {
     .collapse.app-lg-visible {
