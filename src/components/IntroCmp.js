@@ -74,8 +74,18 @@ var IntroCmp = (function (_super) {
         });
         flexSheet.selectionChanged.addHandler(function () {
             console.log(flexSheet.selection);
+            var marquee_selector = document.querySelector('.wj-marquee');
+            marquee_selector.className = 'wj-marquee';
             var selection = flexSheet.selection;
-            //"=sum(B2:D4)"
+            if (selection._row === 0 && selection._row2 === flexSheet.rows.length - 1) {
+                console.log('Column selected', flexSheet.controlRect.height);
+                if (flexSheet.controlRect.height < flexSheet.rows.length * flexSheet.getCellBoundingRect(0, 0).height) {
+                    marquee_selector.className += ' add-marquee';
+                }
+                else {
+                    marquee_selector.className += ' add-marquee-below-flexsheet-height';
+                }
+            }
             if (selection._col < 0 || selection._col2 < 0 || selection._row < 0 || selection._row2 < 0)
                 return;
             var query = '=sum(' + columns[selection._col2] + (selection._row2 + 1) + ':' + columns[selection._col] + (selection._row + 1) + ')';
@@ -96,9 +106,6 @@ var IntroCmp = (function (_super) {
         });
         flexSheet.scrollPositionChanged.addHandler(function () {
             _this.container.clear();
-        });
-        flexSheet.columnHeaders.columns.collectionChanged.addHandler(function () {
-            console.log('col changed');
         });
     };
     IntroCmp.prototype.createComponent = function (top, left, width) {

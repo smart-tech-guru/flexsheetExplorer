@@ -130,11 +130,11 @@ div[wj-part='rhcells'] .wj-header {
     content: "";
     background: royalblue;
     border-radius: 50%;
-    width:15px; 
-    height:15px;
+    width:16px; 
+    height:16px;
     position: absolute;
-    top: -8px;
-    left: -8px;
+    top: -9px;
+    left: -9px;
     z-index: 10000;
 }
 
@@ -142,16 +142,57 @@ div[wj-part='rhcells'] .wj-header {
     content: "";
     background: royalblue;
     border-radius: 50%;
-    width:15px; 
-    height:15px;
+    width:16px; 
+    height:16px;
     position: absolute;
-    bottom: -8px;
-    right: -8px;
+    bottom: -9px;
+    right: -9px;
     z-index: 10000;   
 }
 
+.wj-flexsheet .wj-marquee.add-marquee::before {
+    content: "";
+    border-radius: 50%;
+    width:16px; 
+    height:16px;
+    position: absolute;
+    top: calc(280px - 8px);
+    left: -9px;
+    z-index: 10000;
+}
 
+.wj-flexsheet .wj-marquee.add-marquee::after {
+    content: "";
+    border-radius: 50%;
+    width:16px; 
+    height:16px;
+    position: absolute;
+    top: calc(280px - 8px);
+    right: -9px;
+    z-index: 10000;  
+}
 
+.wj-flexsheet .wj-marquee.add-marquee-below-flexsheet-height::before {
+    content: "";
+    border-radius: 50%;
+    width:16px; 
+    height:16px;
+    position: absolute;
+    top: calc(50% - 8px);
+    left: -9px;
+    z-index: 10000;
+}
+
+.wj-flexsheet .wj-marquee.add-marquee-below-flexsheet-height::after {
+    content: "";
+    border-radius: 50%;
+    width:16px; 
+    height:16px;
+    position: absolute;
+    top: calc(50% - 8px);
+    right: -9px;
+    z-index: 10000;  
+}
 
 
 

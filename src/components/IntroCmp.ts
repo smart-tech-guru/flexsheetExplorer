@@ -74,8 +74,18 @@ export class IntroCmp extends BindingFlexSheetBaseCmp {
         });
         flexSheet.selectionChanged.addHandler( ()=> {
             console.log(flexSheet.selection);
+            const marquee_selector = document.querySelector('.wj-marquee') as HTMLDivElement;
+            marquee_selector.className = 'wj-marquee';
             const selection = flexSheet.selection;
-            //"=sum(B2:D4)"
+            if (selection._row === 0 && selection._row2 === flexSheet.rows.length-1) {
+                console.log('Column selected',flexSheet.controlRect.height );               
+                if (flexSheet.controlRect.height < flexSheet.rows.length * flexSheet.getCellBoundingRect(0,0).height) {
+                    marquee_selector.className += ' add-marquee';                    
+                } else {
+                    marquee_selector.className += ' add-marquee-below-flexsheet-height';                    
+                }
+            }
+            
             if ( selection._col < 0 || selection._col2 < 0 || selection._row < 0 || selection._row2 < 0 ) return;
             const query: string = '=sum(' + columns[selection._col2] + (selection._row2+1) + ':' + columns[selection._col] + (selection._row+1) + ')';
             const firstRowColValue = flexSheet.getCellValue(selection._row2,selection._col2, true);
@@ -93,15 +103,16 @@ export class IntroCmp extends BindingFlexSheetBaseCmp {
                 this.container.clear();
             }
         });
+        
         flexSheet.scrollPositionChanged.addHandler(() => { 
             this.container.clear();
         });
-        flexSheet.columnHeaders.columns.collectionChanged.addHandler(() => {
-            console.log('col changed');
-        });
+
+
+        
     }
 
-    constructor( @Inject(DataSvc) dataSvc: DataSvc,private resolver:ComponentFactoryResolver) {
+    constructor( @Inject(DataSvc) dataSvc: DataSvc, private resolver:ComponentFactoryResolver) {
         super(dataSvc);
     }
 
